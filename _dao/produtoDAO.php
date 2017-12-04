@@ -27,22 +27,15 @@ class produtoDAO
     {
 
         $nome       = $produto->getNome();
+        $marca       = $produto->getMarca();
         $cod_barra = $produto->getCod_Barra();
         $setor     = $produto->getSetor();
         $preco   = $produto->getPreco();
         $disponibilidade = $produto->getDisponibilidade();
+        $imagem = $produto->getImagem();
        
-
-        // $sql = "SELECT * FROM produto WHERE nome = '$nome'";
-        // $exists = $this->connection->query($sql);
-        // if($exists->num_rows > 0){
-        //     $return['message'] = "Já existe um produto com o nome $nome.";
-        //     return $return;
-        //     exit;
-        // }
-
-        $sql = "INSERT INTO produto (Nome, Cod_Barra, Setor, Preco, Status_Prod)
-		VALUES  ('$nome', '$cod_barra', '$setor', '$preco', '$disponibilidade');";
+        $sql = "INSERT INTO produto (nome, marca, cod_Barra, setor, preco, disponibilidade, Imagem)
+		VALUES  ('$nome', '$marca', '$cod_barra', '$setor', '$preco', '$disponibilidade', '$imagem');";
 
         $resultado = $this->connection->query($sql);
         $novo_id = $this->connection->insert_id;

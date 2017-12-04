@@ -7,12 +7,15 @@ class produto {
     private $setor;
     private $preco;
     static $disponibilidade = "DISPONIVEL";
+    private $imagem;
 
-    public function __construct($nome, $cod_barra, $setor, $preco) {
+    public function __construct($nome, $marca, $cod_barra, $setor, $preco, $imagem) {
         $this->nome = $nome;
+        $this->marca = $marca;
         $this->cod_barra = $cod_barra;
         $this->setor = $setor;
         $this->preco = $preco;
+        $this->imagem = $imagem;
     }
     
     public function getNome() {
@@ -21,6 +24,13 @@ class produto {
     
     public function setNome($nome) {
         $this->nome = $nome;
+    }
+    public function getMarca() {
+        return $this->marca;
+    }
+    
+    public function setMarca($marca) {
+        $this->marca = $marca;
     }
 
     public function getCod_Barra() {
@@ -53,6 +63,14 @@ class produto {
 
     public static function setDisponibilidade($disponibilidade) {
         self::$disponibilidade = $disponibilidade;
+    }
+
+    public function getImagem(){
+        return $this->imagem;
+    }
+    
+    public function setImagem($imagem){
+        $this->imagem = $imagem;
     }
 
 }
